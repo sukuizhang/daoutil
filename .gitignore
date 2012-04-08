@@ -1,0 +1,10 @@
+pom.xml
+*jar
+/lib/
+/classes/
+.lein-deps-sum
+/bin/
+.settings/
+.project
+.classpath
+.cake/
