@@ -32,7 +32,6 @@
     (jdbc/with-connection db (jdbc/insert-values table columns values)) data))
 
 (defn update-data! [db table key data]
-  (println data)
   (let [key (if (map? key) key {:id key})]
     (jdbc/with-connection db
       (jdbc/update-values table (convert-condition key) data))))
@@ -73,13 +72,6 @@
         translator (ops :translator plain-data-translator)]
     (->> (get-data db table id)
          (after-read translator))))
-
-(defmacro p-eval [form]
-  (let [args (cons 'str (interpose " " (rest form)))
-        f (name (first form))]
-    `(let [result# ~form]
-       (println (str "(" ~f " " ~args  "): " result#))
-       result#)))
 
 (defn data-recover
   [id old-data new-data ops]
