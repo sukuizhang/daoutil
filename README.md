@@ -2,6 +2,12 @@
    daoutil是一个工具箱，把一些经过实践的可复用的api放在一起。
    另一方面，基于datacontext，它提供了一种有效的隔离数据库的开发方式。
 
+## 使用
+   在project.clj中加入依赖:
+```clojure
+:dependencies [[daoutil "0.1.0"]]
+```
+ 
 ## api介绍
     (daoutil.core/init-database db df)
        根据df中表结构的定义建表，df的结构举例如下:

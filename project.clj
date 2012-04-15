@@ -1,4 +1,4 @@
-(defproject daoutil "0.0.1"
+(defproject daoutil "0.1.0"
   :description "dao的一些"
   :dependencies [[org.clojure/clojure "1.3.0"]
                  [org.clojure/java.jdbc "0.1.3"]
