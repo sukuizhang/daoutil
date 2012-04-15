@@ -101,7 +101,7 @@ DataTranslator是用来在数据库数据和逻辑处理数据之间做一个转
 (def-context :teacher 'data-provide 'data-recover {:db memory-db :table :teacher})
 (def-context :student 'data-provide 'data-recover {:db memory-db :table :student :translator translator})
 ```
-绑定之后就可以用比较简单的方式写数据逻辑，像下面这样。
+### 绑定之后就可以用比较简单的方式写数据逻辑，像下面这样。
 ```clojure
 (defn ^{:wrapcontext true :save :teacher}
   new-teacher0 [num name age]
@@ -133,29 +133,35 @@ DataTranslator是用来在数据库数据和逻辑处理数据之间做一个转
       (and (= (:name teacher) (:teacher student1))
            (= (:name teacher) (:teacher student2)))))
 ```
- 最后，经过执行
+### 生成接口函数
 ```clojure
 (wrap-pure-ns)
 ```
-就可以得到可以使用的接口函数。
-例如:
+
+就可以得到可以使用的接口函数，例如:
+
+创建一个教师记录。
 ```clojure
 (new-teacher "01" "xyy" 22)
 ```
-创建一个教师记录。
+
+修改id为3的教师的信息。
 ```clojure
 (update-teacher 3 "001" 22)
 ```
-修改id为3的教师的信息。
+
+修改编号为"02"的教师的信息。
 ```clojure
 (update-teacher {:num "02"} "002" 17)
 ```
-修改编号为"02"的教师的信息。
+
+比较编号为"01"的学生和id为13的学生的成绩。
 ```clojure
 (better {:num "01"} 13)
 ```
-比较编号为"01"的学生和id为13的学生的成绩。
+
+判断编号为"002"的教师是否姓名为"zrr"的学生的老师。
 ```clojure
 (teacherof {:num "002"} {:name "zrr"}) => false))
 ```
-判断编号为"002"的教师是否姓名为"zrr"的学生的老师。
+
