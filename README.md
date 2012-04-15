@@ -38,29 +38,45 @@
       })
 ```
 
+
+
 ```clojure     
 (daoutil.core/insert-data! db table data)
 ```
    
-插入一条数据，data是一个map，insert-data!能够在需要的时候，自
-   动给数据分配id，并在返回值中送回来。
+插入一条数据，data是一个map，insert-data!能够在需要的时候，自动给数据分配id，并在返回值中送回来。
 
-   ### (daoutil.core/update-data! db table key data)
-        修改一条数据。
-        key是查找数据的条件，通常是一个map，存放一个组合条件，但在{:id id}的情况下，也可以直接让id作为key送进来。
-        data是新值。
 
-  ### (daoutil.core/delete-data! db table condition)
-       根据条件删除数据，condition可以是以下几种形式:
-       {:age 20 :school_id 27}
-       [[:age 20] [:school_id 27]]
-       {:id 100} 可以直接写成 100
+```clojure
+(daoutil.core/update-data! db table key data)
+```
+修改一条数据。
+key:  查找数据的条件，通常是一个map，存放一个组合条件，但在{:id id}的情况下，也可以直接让id作为key送进来。
+data: 新值。
 
-  ### (daoutil.core/get-datas db table condition)
-      查询数据，condition同上。
 
-  ### (daoutil.core/get-data db table condition)
-      查询一条数据，同上。
+```clojure
+(daoutil.core/delete-data! db table condition)
+```
+
+根据条件删除数据，condition可以是以下几种形式:
+{:age 20 :school_id 27}
+[[:age 20] [:school_id 27]]
+{:id 100} 可以直接写成 100
+
+
+```clojure
+(daoutil.core/get-datas db table condition)
+```
+
+查询数据，condition同上。
+
+
+```clojure
+(daoutil.core/get-data db table condition)
+```
+查询一条数据，同上。
+
 
 ## 和datacontext结合。
    daoutil提供了一种简单的dao数据上下文:
