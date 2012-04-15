@@ -10,8 +10,10 @@
 ```
  
 ## api介绍
-    (daoutil.core/init-database db df)
-       根据df中表结构的定义建表，df的结构举例如下:
+    
+### (daoutil.core/init-database db df)
+根据df中表结构的定义建表，df的结构举例如下:
+
 ```clojure
    (def database-df
      {:active_info
