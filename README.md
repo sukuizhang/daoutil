@@ -51,7 +51,9 @@
 (daoutil.core/update-data! db table key data)
 ```
 修改一条数据。
+
 key:  查找数据的条件，通常是一个map，存放一个组合条件，但在{:id id}的情况下，也可以直接让id作为key送进来。
+
 data: 新值。
 
 
@@ -60,8 +62,11 @@ data: 新值。
 ```
 
 根据条件删除数据，condition可以是以下几种形式:
+
 {:age 20 :school_id 27}
+
 [[:age 20] [:school_id 27]]
+
 {:id 100} 可以直接写成 100
 
 
