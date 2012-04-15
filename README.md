@@ -138,10 +138,8 @@ DataTranslator是用来在数据库数据和逻辑处理数据之间做一个转
 (wrap-pure-ns)
 ```
 
-就可以得到可以使用的接口函数，例如:
-
 创建一个教师记录。
-```clojure
+```
 (new-teacher "01" "xyy" 22)
 ```
 
