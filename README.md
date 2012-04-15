@@ -144,22 +144,22 @@ DataTranslator是用来在数据库数据和逻辑处理数据之间做一个转
 ```
 
 修改id为3的教师的信息。
-```clojure
+```
 (update-teacher 3 "001" 22)
 ```
 
 修改编号为"02"的教师的信息。
-```clojure
+```
 (update-teacher {:num "02"} "002" 17)
 ```
 
 比较编号为"01"的学生和id为13的学生的成绩。
-```clojure
+```
 (better {:num "01"} 13)
 ```
 
 判断编号为"002"的教师是否姓名为"zrr"的学生的老师。
-```clojure
+```
 (teacherof {:num "002"} {:name "zrr"}) => false))
 ```
 
