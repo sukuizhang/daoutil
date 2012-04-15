@@ -4,6 +4,7 @@
 
 ## 使用
    在project.clj中加入依赖:
+
 ```clojure
 :dependencies [[daoutil "0.1.0"]]
 ```
