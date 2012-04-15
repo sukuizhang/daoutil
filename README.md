@@ -10,8 +10,11 @@
 ```
  
 ## api介绍
-    
-### (daoutil.core/init-database db df)
+
+```clojure    
+(daoutil.core/init-database db df)
+```
+
 根据df中表结构的定义建表，df的结构举例如下:
 
 ```clojure
@@ -34,11 +37,14 @@
        [:award_time :timestamp]];获奖时间
       })
 ```
-     
-    ### (daoutil.core/insert-data! db table data)
-        插入一条数据，data是一个map，insert-data!能够在需要的时候，自
-        动给数据分配id，并在返回值中送回来
-。
+
+```clojure     
+(daoutil.core/insert-data! db table data)
+```
+   
+插入一条数据，data是一个map，insert-data!能够在需要的时候，自
+   动给数据分配id，并在返回值中送回来。
+
    ### (daoutil.core/update-data! db table key data)
         修改一条数据。
         key是查找数据的条件，通常是一个map，存放一个组合条件，但在{:id id}的情况下，也可以直接让id作为key送进来。
