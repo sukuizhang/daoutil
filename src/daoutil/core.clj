@@ -66,7 +66,7 @@
 
 (def plain-data-translator (PlainDataTranslator.))
 
-(defn data-provide [id ops]
+(defn data-provide [id _ ops]
   (let [db (:db ops)
         table (:table ops)
         translator (ops :translator plain-data-translator)]
@@ -74,7 +74,7 @@
          (after-read translator))))
 
 (defn data-recover
-  [id old-data new-data ops]
+  [id _ old-data new-data ops]
   (let [db (:db ops)
         table (:table ops)
         translator (ops :translator plain-data-translator)

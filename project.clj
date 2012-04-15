@@ -7,4 +7,4 @@
                  [org.clojure/tools.logging "0.2.3"]
                  [c3p0 "0.9.1.2"]]
   :dev-dependencies [[midje "1.3-alpha5"]
-                     [datacontext "0.1.0"]])
+                     [datacontext "0.2.0"]])

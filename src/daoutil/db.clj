@@ -3,21 +3,21 @@
 
 (def memory-db {:classname "org.hsqldb.jdbcDriver"
          :subprotocol "hsqldb:mem:idb"
-         :subname ""         
-         :user "sa"         
+         :subname ""
+         :user "sa"
          :password ""})
 
 (defn ds-db
   "创建一个只包含:datasource的db，传入一个创建datasource的函数"
   [ds-factory spec]
-  (let [db-delay (delay {:datasource (ds-factory spec)})]
+  (let [db-delay (delay {:datasource (ds-factory (var-get spec))})]
     (fn [] @db-delay)))
 
 (defn c3p0-pooled-datasource
   "创建c3p0 datasource。"
   [spec]
   (doto (ComboPooledDataSource.)
-    (.setDriverClass (:classname spec)) 
+    (.setDriverClass (:classname spec))
     (.setJdbcUrl (str "jdbc:" (:subprotocol spec) ":" (:subname spec)))
     (.setUser (:user spec))
     (.setPassword (:password spec))
