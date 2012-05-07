@@ -70,7 +70,7 @@
   [table & [condition]]
   (let [[where & params] condition]
     (jdbc/with-query-results rs
-      (cons (str "select * from " (name table) " where " where) params)
+      (vec (cons (str "select * from " (name table) " where " where) params))
       (vec rs))))
 
 (defn get-data [table & [condition]]
