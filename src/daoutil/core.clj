@@ -80,5 +80,5 @@
   [table & [condition]]
   (let [[where & params] condition]
     (jdbc/with-query-results rs
-      (cons (str "select count(*) from " (name table) " where " where) params)
+      (vec (cons (str "select count(*) from " (name table) " where " where) params))
       (val (first (first rs))))))
